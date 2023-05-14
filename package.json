@@ -1,0 +1,10 @@
+{
+	"name": "gulpfile-front-assets",
+	"version": "1.0.0",
+	"description": "A gulpfile for building front-end assets.",
+	"author": "Sonia Brunel",
+	"license": "MIT License",
+	"scripts": {
+		"test": "echo Error: no test specified"
+	}
+}
