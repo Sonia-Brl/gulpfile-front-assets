@@ -1,5 +1,5 @@
 @import "variables";
-
+@import "fonts";
 body{
     background-color: #{$gray};
     color: #{$text};
@@ -36,7 +36,7 @@ h1{
     text-transform: uppercase;
     color: #{$primary};
     font-size: 56px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Gomarice',Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
 

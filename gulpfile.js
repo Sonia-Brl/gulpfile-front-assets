@@ -10,6 +10,7 @@ var uglify = require('gulp-uglify');
 var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var ttf2woff = require('gulp-ttf2woff');
 
 var stylesSRC = "./sources/scss/styles.scss";
 var stylesDIST = "./assets/css/";
@@ -25,6 +26,10 @@ var scriptsDIST = "./assets/js/";
 var scriptsWatch = "./sources/js/**/*.js";
 var scriptsFILES = [scriptsSRC];
 var scriptsWatch      = './sources/js/**/*.js';
+
+var fontsSRC     = './sources/fonts/**/*';
+var fontsDIST     = './assets/fonts/';
+var fontsWatch   = './sources/fonts/**/*.*';
 
 function browser(){
     browserSync.init({
@@ -80,18 +85,24 @@ function images() {
     return triggerPlumber( imgsSRC, imgsDIST );
 };
 
-
+function fonts() {
+    return src([fontsSRC])
+    .pipe(ttf2woff())
+    .pipe(dest(fontsDIST));
+};
 
 function watchFiles() {
     watch(stylesWatch, series(styles, reload));
     watch(scriptsWatch, series(scripts, reload));
     watch(imgsWatch, series(images, reload));
+    watch(fontsWatch, series(fonts, reload));
 }
 
 task("css", styles);
 task("js", scripts);
 task("images", images);
+task("fonts", fonts);
 task("watch", parallel(browser,watchFiles));
 
-task("default", parallel(styles,images,scripts));
+task("default", parallel(styles,images,scripts,fonts));
 task("build", parallel(browser, 'default'));
