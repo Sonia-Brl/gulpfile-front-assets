@@ -4,11 +4,15 @@ var autoprefixer = require( 'gulp-autoprefixer' );
 var browserSync = require('browser-sync').create();
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
+var plumber = require( 'gulp-plumber' );
 
 var stylesSRC = "./sources/scss/styles.scss";
 var stylesDIST = "./assets/css/";
 var stylesWatch = "./sources/scss/**/*.scss";
 
+var imgsSRC = "./sources/images/**/*";
+var imgsDIST = './assets/images/';
+var imgsWatch = './sources/images/**/*.*';
 
 function browser(){
     browserSync.init({
@@ -36,13 +40,27 @@ function styles(callback){
     callback();
 }; 
 
+function triggerPlumber(src_file, dest_file) {
+    return src( src_file )
+    .pipe( plumber() )
+    .pipe( dest( dest_file ) );
+}
+
+function images() {
+    return triggerPlumber( imgsSRC, imgsDIST );
+};
+
+
 
 function watchFiles() {
     watch(stylesWatch, series(styles, reload));
+    watch(imgsWatch, series(images, reload));
 }
+
+task("images", images);
 
 task("css", styles);
 task("watch", parallel(browser,watchFiles));
 
-task("default", parallel(styles));
+task("default", parallel(styles,images));
 task("build", parallel(browser, 'default'));

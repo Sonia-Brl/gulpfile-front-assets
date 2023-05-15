@@ -8,7 +8,8 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
 }
 
 section{
@@ -21,15 +22,30 @@ section{
     padding: 3rem;
     border-radius: 25px;
     background-color: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+
+h1,h2{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
 }
 
 h1{
+    text-shadow: 2px 2px #{$gray};
     text-transform: uppercase;
     color: #{$primary};
+    font-size: 56px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+h2{
+    color: #C0C0C0; 
 }
 
 .mtl{
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .btn{
@@ -49,15 +65,8 @@ h1{
 }
 
 .picture{
-    height: 220px;
-    width: auto;
-    
+    img {
+        height: 220px;
+        width: auto;
+    }  
 }
-
-
-.st0{fill:#{$white};stroke:#{$primary};stroke-width:#{$stroke-width};}
-.st1{fill:#{$primary};}
-.st2{fill:#{$white};stroke:#{$text};stroke-width:#{$stroke-width};}
-.st3{display:none;}
-.st4{fill:none;stroke:#{$text};stroke-width:#{$stroke-width};stroke-linecap:round;}
-.st5{fill:#{$primary};stroke:#{$text};stroke-width:#{$stroke-width};stroke-linecap:round;}
