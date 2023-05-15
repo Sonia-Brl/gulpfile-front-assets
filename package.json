@@ -8,12 +8,24 @@
 		"test": "echo Error: no test specified"
 	},
 	"dependencies": {
+		"@babel/core": "^7.2.2",
+		"@babel/preset-env": "^7.2.3",
+		"babelify": "^10.0.0",
 		"browser-sync": "^2.29.1",
+		"browserify": "^17.0.0",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
 		"gulp-plumber": "^1.2.1",
 		"gulp-rename": "^2.0.0",
-		"gulp-sourcemaps": "^3.0.0"
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-uglify": "^3.0.2",
+		"vinyl-buffer": "^1.0.0",
+		"vinyl-source-stream": "^2.0.0"
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-env"
+		]
 	},
 	"devDependencies": {
 		"gulp-sass": "^5.1.0",
