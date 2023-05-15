@@ -11,14 +11,15 @@ var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var ttf2woff = require('gulp-ttf2woff');
+const webp = require('gulp-webp');
 
 var stylesSRC = "./sources/scss/styles.scss";
 var stylesDIST = "./assets/css/";
 var stylesWatch = "./sources/scss/**/*.scss";
 
-var imgsSRC = "./sources/images/**/*";
+var imgsSRC = "./sources/images/*";
 var imgsDIST = './assets/images/';
-var imgsWatch = './sources/images/**/*.*';
+var imgsWatch = './sources/images/*.*';
 
 var scriptsSRC = "index.js";
 var scriptsFOLDER = "./sources/js/";
@@ -82,13 +83,17 @@ function triggerPlumber(src_file, dest_file) {
 }
 
 function images() {
-    return triggerPlumber( imgsSRC, imgsDIST );
+    src(imgsSRC)
+        .pipe(webp())
+        .pipe(dest(imgsDIST))
+    //return triggerPlumber( imgsSRC, imgsDIST );
 };
 
 function fonts() {
     return src([fontsSRC])
     .pipe(ttf2woff())
     .pipe(dest(fontsDIST));
+      //return triggerPlumber( fontsSRC, fontsDIST );
 };
 
 function watchFiles() {
