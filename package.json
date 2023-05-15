@@ -30,6 +30,7 @@
 	"devDependencies": {
 		"gulp-sass": "^5.1.0",
 		"gulp-ttf2woff": "^1.1.1",
+		"gulp-webp": "^4.0.1",
 		"sass": "^1.62.1"
 	}
 }
