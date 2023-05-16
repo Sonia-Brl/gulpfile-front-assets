@@ -1,28 +1,24 @@
 
 <h1 align="center">🌟 A gulpfile for your assets 🌟</h1>
 <p align="center">A gulpfile for building front-end assets.</p>
-<p align="center"><img src="screenshot.png" alt="A gulpfile for building front-end assets."/></p>
+<p align="center"><img src="./screenshot.png" alt="A gulpfile for building front-end assets."/></p>
 
 ## Prerequisite
 
 - [Node](https://nodejs.org/en "Node") **Version v12.22.12** 
 - [NPM](https://www.npmjs.com/ "Node") **Version v9.5.0** 
 
-
-
-
 ## Installation Steps
 
-#### 1. On github clic on the "Use this template" button and create a new repository 
+##### 1. On github clic on the "Use this template" button and create a new repository 
 
-#### 2. Clone your new repository
-#### 3. Run npm
+##### 2. Clone your new repository
+##### 3. Run npm
 
 ```
 npm install
 ```
-
-#### 3. Build tree 
+##### 4. Build tree 
 
 ```
 gulp build
@@ -35,7 +31,7 @@ Check if everything went fine by opening index.html in your browser.
 `If` you see some styles , it's ok. 
 `Else` , **check your stylsheets ands scripts links your your index.html**
 
-#### 3. Add your own assets files 
+##### 5. Add your own assets files 
 
 All you assets need to be in the sources folder :
 - ADD your Javascript files in the `js` folder
@@ -44,7 +40,7 @@ All you assets need to be in the sources folder :
 - ADD your Images files in the `images` folder
 
 
-#### 4. Run the watch command
+##### 6. Run the watch command
 
 ```
 gulp watch
@@ -74,30 +70,29 @@ gulp build
 
 ### Run type by type of assets 
 
+##### SCSS : Compile and mimify your scss files
 ```
-## Compile and mimify your scss files
 gulp css
 ```
+
+##### Javascript : Transpile and uglify your javascript files into ES5. All files with the extensions .js are transpiled.
 ```
-## Transpile and uglify your javascript files into ES5
-## all files with the extensions .js, .es, .es6 and .jsx are transpiled.
 gulp js
 ```
+##### Images : Convert your images  to .webp images
 ```
-## Convert your images  to .webp images
 gulp images
 ```
+##### Fonts : Convert your .ttf fonts to .woff fonts
 
 ```
-## Convert your .ttf fonts to .woff fonts
 gulp fonts
 ```
 
-### Livereload 
+##### Livereload : Styles, Scripts, Images and Fonts compilations.
+**Save your changes to auto reload**
 
 ```
-## Will run the default command : Styles, Scripts, Images and Fonts compilations.
-## Save your changes to auto reload
 gulp watch
 ```
 ## Author
