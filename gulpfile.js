@@ -64,7 +64,7 @@ function scripts(callback){
         .transform(babelify, {presets:['@babel/preset-env']})
         .bundle()
         .pipe(source(entry))
-        .pipe(rename({ extname: '.min.js'}))
+        .pipe(rename({extname: '.min.js'}))
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify())
@@ -77,15 +77,16 @@ function scripts(callback){
 
 
 function triggerPlumber(src_file, dest_file) {
-    return src( src_file )
+    return src(src_file)
     .pipe( plumber() )
-    .pipe( dest( dest_file ) );
+    .pipe( dest(dest_file));
 }
 
-function images() {
+function images(callback) {
     src(imgsSRC)
         .pipe(webp())
-        .pipe(dest(imgsDIST))
+        .pipe(dest(imgsDIST));
+        callback();
     //return triggerPlumber( imgsSRC, imgsDIST );
 };
 
@@ -109,5 +110,5 @@ task("images", images);
 task("fonts", fonts);
 task("watch", parallel(browser,watchFiles));
 
-task("default", parallel(styles,images,scripts,fonts));
-task("build", parallel(browser, 'default'));
+task("default", series(styles,scripts,fonts,images));
+task("build", parallel('default'));
