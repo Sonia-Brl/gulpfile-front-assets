@@ -56,13 +56,12 @@ In the project directory, you can run:
 
 ### Default or build
 **No images conversions in default/build command**
-
+##### The default command work : Styles, Scripts and Fonts compilation.
 ```
-## Will make the default command work : Styles, Scripts and Fonts compilation.
 gulp 
 ```
+##### Run the default command : Styles, Scripts and Fonts compilations.
 ```
-## Will run the default command : Styles, Scripts and Fonts compilations.
 gulp build
 ```
 
@@ -98,7 +97,7 @@ gulp watch
 ## Author
 
 **Sonia Brunel**
-- [Profile](https://github.com/Rohit19060 "Sonia Brunel")
+- [Profile](https://github.com/Sonia-Brl "Sonia Brunel")
 - [Email](mailto:brunelsonia@gmail.com?subject=Hi%20from%20gulpfile-front-assets "Hi!")
 - [Website](https://soniabrunel.com "Welcome")
 
